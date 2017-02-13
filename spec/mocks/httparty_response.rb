@@ -1,5 +1,5 @@
 module APICake::Mocks
-  class HTTPartyResponse
+  class HTTPartyPayload
     def request ; :request ; end
     def response; :response; end
     def headers; :headers; end

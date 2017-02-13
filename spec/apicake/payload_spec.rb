@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'ostruct'
 
-describe Response do
-  let(:mock) { Mocks::HTTPartyResponse.new } 
-  let(:subject) { Response.new mock }
+describe Payload do
+  let(:mock) { Mocks::HTTPartyPayload.new } 
+  let(:subject) { Payload.new mock }
 
   describe '#new' do
     it "creates an object from HTTParty response" do

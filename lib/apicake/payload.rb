@@ -1,5 +1,5 @@
 module APICake
-  class Response
+  class Payload
     attr_reader :request, :response, :headers, :parsed_response
 
     def initialize(response)
