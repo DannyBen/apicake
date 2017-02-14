@@ -5,6 +5,8 @@ module APICake
   class Base
     include HTTParty
 
+    attr_reader :last_payload
+
     @@disable_dynamic_methods = false
 
     # Disable dynamic methods. This is enabled by default.
@@ -30,6 +32,18 @@ module APICake
     def default_params; {}; end
     def default_query;  {}; end
 
+    def get(path, extra=nil, params={})
+      get!(path, extra, params).parsed_response
+    end
+
+    def get!(path, extra=nil, params={})
+      key = "#{self.class.base_uri}+#{path}+#{extra}+#{params}"
+
+      @last_payload = cache.get key do
+        http_get(path, extra, params)
+      end
+    end
+
     def url(path, extra=nil, params={})
       payload = get! path, extra, params
       payload.request.last_uri.to_s
@@ -40,17 +54,7 @@ module APICake
       File.write filename, payload.response.body
     end
 
-    def get(path, extra=nil, params={})
-      get!(path, extra, params).parsed_response
-    end
-
-    def get!(path, extra=nil, params={})
-      key = "#{path}+#{extra}+#{params}"
-
-      cache.get key do
-        http_get(path, extra, params)
-      end
-    end
+    private
 
     def http_get(path, extra=nil, params={})
       if extra.is_a?(Hash) and params.empty?

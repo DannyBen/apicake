@@ -9,11 +9,10 @@ module APICake
       @parsed_response = response.parsed_response
     end
 
-    def inspect
+    def to_h
       { request: request, response: response, headers: headers, 
         parsed_response: parsed_response }
     end
-    alias_method :to_h, :inspect
 
     def to_s
       parsed_response.to_s
