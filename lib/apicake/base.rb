@@ -7,21 +7,8 @@ module APICake
 
     attr_reader :last_payload
 
-    @@disable_dynamic_methods = false
-
-    # Disable dynamic methods. This is enabled by default.
-    # The main reason you may want to disable it sometimes is for easier
-    # debugging.
-    def self.disable_dynamic_methods
-      @@disable_dynamic_methods = true
-    end
-
     def method_missing(method_sym, *arguments, &_block)
-      if @@disable_dynamic_methods
-        super
-      else
-        get "/#{method_sym}", *arguments
-      end
+      get "/#{method_sym}", *arguments
     end
 
     def cache

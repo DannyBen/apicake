@@ -7,6 +7,15 @@ API Cake - Build Dynamic API Wrappers
 [![Gemnasium](https://img.shields.io/gemnasium/DannyBen/apicake.svg?style=flat-square)](https://gemnasium.com/DannyBen/apicake)
 
 
+---
+
+This gems allows you to easily build rich API wrappers with minimal code.
+
+It is HTTParty with a Cake.
+
+---
+
+
 Install
 --------------------------------------------------
 
@@ -19,3 +28,81 @@ Or with bundler:
 ```ruby
 gem 'apicake'
 ```
+
+
+TL;DR
+--------------------------------------------------
+
+Turn this hypothetical API url:
+
+```
+http://api.recipies.com/cakes?layers=3 
+```
+
+To this:
+
+```ruby
+Recipies.cakes layers:3
+```
+
+Using this code only:
+
+```ruby
+class Recipies < APICake::Base
+  base_url 'api.recipies.com'
+end
+```
+
+
+Features
+--------------------------------------------------
+
+- Uses HTTParty
+- Built in caching
+- Built in save to file
+- Built in response parsing (part of HTTParty)
+- Designed for GET-only APIs (e.g., data services)
+
+
+Usage
+--------------------------------------------------
+
+Create a class and inherit from `APICake::Base`.
+
+This class automatically includes HTTParty, so you can do whatever you do in
+HTTParty. In addition, the `APICake::Base` class defines a `method_missing`
+method, so any call to an undefined method, will simply be converted to a 
+URL.
+
+For example:
+
+```ruby
+class Recipies << APICake::Base
+  base_url 'api.recipies.com/v1'
+end
+
+recipies = Rcipies.new
+
+# This will access http://api.recipies.com/v1/cakes
+recipies.cakes
+
+# This will access http://api.recipies.com/v1/cakes/chocolate
+recipies.cakes 'chocolate'
+
+# This will access http://api.recipies.com/v1/cakes/chocolate?layers=3
+recipies.cakes 'chocolate', layers: 3
+```
+
+
+Caching
+--------------------------------------------------
+
+Documentation to be completed
+
+
+Method Reference
+--------------------------------------------------
+
+Documentation to be completed
+
+
