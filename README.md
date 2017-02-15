@@ -106,3 +106,8 @@ Method Reference
 Documentation to be completed
 
 
+Examples
+--------------------------------------------------
+
+To be completed
+
