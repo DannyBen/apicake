@@ -9,7 +9,7 @@ API Cake - Build Dynamic API Wrappers
 
 ---
 
-This gems allows you to easily build rich API wrappers with minimal code.
+This gem allows you to easily build rich API wrappers with minimal code.
 
 It is HTTParty with a Cake.
 
@@ -33,7 +33,7 @@ gem 'apicake'
 TL;DR
 --------------------------------------------------
 
-Turn this hypothetical API url:
+Turn this hypothetical API URL:
 
 ```
 http://api.recipies.com/cakes?layers=3 
