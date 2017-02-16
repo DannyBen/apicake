@@ -93,12 +93,16 @@ recipies.cakes 'chocolate'
 recipies.cakes 'chocolate', layers: 3
 ```
 
+See the [Examples folder][1] for more examples.
+
 
 Caching
 --------------------------------------------------
 
-APICake uses [Lightly][1] for caching. By default, cached objects are stored
+APICake uses [Lightly][2] for caching. By default, cached objects are stored
 in the `./cache` directory for 3600 seconds.
+
+See the [caching example][3].
 
 
 Method Reference
@@ -107,12 +111,8 @@ Method Reference
 Documentation to be completed
 
 
-Examples
---------------------------------------------------
-
-See the [Examples Folder][2]
-
 ---
 
-[1]: https://github.com/DannyBen/lightly
-[2]: https://github.com/DannyBen/apicake/tree/master/examples
+[1]: https://github.com/DannyBen/apicake/tree/master/examples
+[2]: https://github.com/DannyBen/lightly
+[3]: https://github.com/DannyBen/apicake/blob/master/examples/04-caching.rb
