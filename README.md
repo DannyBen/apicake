@@ -113,9 +113,22 @@ For a detailed explanation of the services and methods you get when inheriting
 from `APICake::Base`, see the [class documentation][4].
 
 
+Real World Examples
+--------------------------------------------------
+
+These gems use APICake:
+
+- [Fredric][5] - API wrapper for the FRED database
+- [Intrinio][6] - API wrapper for the Intrinio data service
+- [Quata][7] - API wrapper for the Quandl data service
+
+
 ---
 
 [1]: https://github.com/DannyBen/apicake/tree/master/examples
 [2]: https://github.com/DannyBen/lightly
 [3]: https://github.com/DannyBen/apicake/blob/master/examples/04-caching.rb
 [4]: http://www.rubydoc.info/gems/apicake/0.1.1/APICake/Base
+[5]: https://github.com/DannyBen/fredric
+[6]: https://github.com/DannyBen/intrinio
+[7]: https://github.com/DannyBen/quata
