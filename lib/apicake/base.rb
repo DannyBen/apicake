@@ -59,6 +59,50 @@ module APICake
       File.write filename, payload.response.body
     end
 
+    # Forwards all arguments to #get! and converts its parsed response to 
+    # CSV. If the response contains one or more arrays, the first array will
+    # be the CSV output, otherwise, the response itself will be used.
+    # You can override this method if you wish to provide a different 
+    # behavior.
+    def get_csv(*args)
+      payload = get!(*args)
+
+      if payload.response.code != '200'
+        raise BadResponse, "#{payload.response.code} #{payload.response.msg}"
+      end
+
+      response = payload.parsed_response
+
+      unless response.is_a? Hash
+        raise BadResponse, "Cannot parse response"
+      end
+      
+      data = csv_node response
+
+      header = data.first.keys
+      result = CSV.generate do |csv|
+        csv << header
+        data.each { |row| csv << row.values }
+      end
+
+      result
+    end
+
+    # Send a request, convert it to CSV and save it to a file.
+    def save_csv(file, *args)
+      File.write file, get_csv(*args)
+    end
+
+    # Determins which part of the data is best suited to be displayed 
+    # as CSV. 
+    # - In case there is an array in the data, it will be returned.
+    # - Otherwise, we will use the entire response as a single row CSV.
+    # Override this if you want to have a different decision process.
+    def csv_node(data)
+      arrays = data.keys.select { |key| data[key].is_a? Array }
+      arrays.empty? ? [data] : data[arrays.first]
+    end
+
     private
 
     # Make a call with HTTParty and return a payload object.

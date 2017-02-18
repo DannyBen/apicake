@@ -117,4 +117,55 @@ describe Base do
       expect(subject.last_payload).to be_a Payload
     end
   end
+
+  describe "#last_url" do
+    it "is set after a #get call" do
+      subject.get mocky[:html]
+      expect(subject.last_url).to eq "#{subject.class.base_uri}/#{mocky[:html]}"
+    end
+  end
+
+  describe "#get_csv" do
+    context "with a response that contains at least one array" do
+      it "returns a csv string" do
+        result = subject.get_csv mocky[:array]
+        expect(result).to eq fixture('array.csv')
+      end
+    end
+
+    context "with a response that does not contain any array" do
+      it "returns a csv string" do
+        result = subject.get_csv mocky[:non_array]
+        expect(result).to eq fixture('non_array.csv')
+      end
+    end
+
+    context "with a non 200 response" do
+      it "raises an error" do
+        expect{subject.get_csv mocky[:not_found]}.to raise_error(BadResponse)
+      end
+    end
+
+    context "with a non hash response" do
+      it "raises an error" do
+        expect{subject.get_csv mocky[:html]}.to raise_error(BadResponse)
+      end
+    end
+  end
+
+  describe "#save_csv" do
+    let(:filename) { 'spec/tmp/out.csv' }
+
+    before do
+      File.delete filename if File.exist? filename
+      expect(File).not_to exist(filename)
+    end
+
+    it "saves output to a file" do
+      subject.save_csv filename, mocky[:array]
+      
+      expect(File).to exist(filename)
+      expect(File.read filename).to eq fixture('array.csv')
+    end
+  end
 end
