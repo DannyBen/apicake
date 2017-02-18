@@ -118,4 +118,4 @@ from `APICake::Base`, see the [class documentation][4].
 [1]: https://github.com/DannyBen/apicake/tree/master/examples
 [2]: https://github.com/DannyBen/lightly
 [3]: https://github.com/DannyBen/apicake/blob/master/examples/04-caching.rb
-[4]: http://www.rubydoc.info/gems/apicake/APICake/Base
+[4]: http://www.rubydoc.info/gems/apicake/0.1.1/APICake/Base
