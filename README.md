@@ -109,7 +109,8 @@ See the [caching example][3].
 Method Reference
 --------------------------------------------------
 
-Documentation to be completed
+For a detailed explanation of the services and methods you get when inheriting
+from `APICake::Base`, see the [class documentation][4].
 
 
 ---
@@ -117,3 +118,4 @@ Documentation to be completed
 [1]: https://github.com/DannyBen/apicake/tree/master/examples
 [2]: https://github.com/DannyBen/lightly
 [3]: https://github.com/DannyBen/apicake/blob/master/examples/04-caching.rb
+[4]: http://www.rubydoc.info/gems/apicake/APICake/Base
