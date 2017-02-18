@@ -61,6 +61,7 @@ Features
 - Built in caching
 - Built in save to file
 - Built in response parsing (part of HTTParty)
+- Built in convert and save to CSV
 - Designed for GET-only APIs (e.g., data services)
 
 
