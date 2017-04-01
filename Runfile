@@ -1,7 +1,7 @@
 require "runfile-tasks"
 require_relative 'lib/apicake'
 
-name    "API Cake Developer Toolbelt"
+title   "API Cake Developer Toolbelt"
 summary "Runfile tasks for building the API Cake gem"
 version APICake::VERSION
 
