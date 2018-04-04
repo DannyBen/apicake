@@ -4,7 +4,7 @@ API Cake - Build Dynamic API Wrappers
 [![Gem](https://img.shields.io/gem/v/apicake.svg?style=flat-square)](https://rubygems.org/gems/apicake)
 [![Build](https://img.shields.io/travis/DannyBen/apicake/master.svg?style=flat-square)](https://travis-ci.org/DannyBen/apicake)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/DannyBen/apicake.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/apicake)
-[![Issues](https://img.shields.io/codeclimate/issues/github/DannyBen/apicake.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/apicake)
+[![Issues](https://img.shields.io/codeclimate/issues/DannyBen/apicake.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/apicake)
 [![Dependencies](https://img.shields.io/gemnasium/DannyBen/apicake.svg?style=flat-square)](https://gemnasium.com/DannyBen/apicake)
 
 
