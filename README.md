@@ -1,8 +1,8 @@
 API Cake - Build Dynamic API Wrappers
 ==================================================
 
-[![Gem Version](https://badge.fury.io/rb/apicaks.svg)](https://badge.fury.io/rb/apicaks)
-[![Build Status](https://travis-ci.org/DannyBen/apicaks.svg?branch=master)](https://travis-ci.org/DannyBen/apicaks)
+[![Gem Version](https://badge.fury.io/rb/apicake.svg)](https://badge.fury.io/rb/apicake)
+[![Build Status](https://travis-ci.org/DannyBen/apicake.svg?branch=master)](https://travis-ci.org/DannyBen/apicake)
 [![Maintainability](https://api.codeclimate.com/v1/badges/07bd0f8653914ce703a6/maintainability)](https://codeclimate.com/github/DannyBen/apicake/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/07bd0f8653914ce703a6/test_coverage)](https://codeclimate.com/github/DannyBen/apicake/test_coverage)
 
