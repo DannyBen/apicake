@@ -1,11 +1,10 @@
 API Cake - Build Dynamic API Wrappers
 ==================================================
 
-[![Gem](https://img.shields.io/gem/v/apicake.svg?style=flat-square)](https://rubygems.org/gems/apicake)
-[![Build](https://img.shields.io/travis/DannyBen/apicake/master.svg?style=flat-square)](https://travis-ci.org/DannyBen/apicake)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/DannyBen/apicake.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/apicake)
-[![Dependencies](https://img.shields.io/gemnasium/DannyBen/apicake.svg?style=flat-square)](https://gemnasium.com/DannyBen/apicake)
-
+[![Gem Version](https://badge.fury.io/rb/apicaks.svg)](https://badge.fury.io/rb/apicaks)
+[![Build Status](https://travis-ci.org/DannyBen/apicaks.svg?branch=master)](https://travis-ci.org/DannyBen/apicaks)
+[![Maintainability](https://api.codeclimate.com/v1/badges/07bd0f8653914ce703a6/maintainability)](https://codeclimate.com/github/DannyBen/apicake/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/07bd0f8653914ce703a6/test_coverage)](https://codeclimate.com/github/DannyBen/apicake/test_coverage)
 
 ---
 
