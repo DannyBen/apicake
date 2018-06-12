@@ -5,7 +5,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.require :default, :development
 
-require_all 'spec/mocks/**/*.rb'
+requires 'mocks'
 
 include APICake
 
