@@ -117,9 +117,9 @@ Real World Examples
 
 These gems use APICake:
 
-- [Fredric][5] - API wrapper for the FRED database
-- [Intrinio][6] - API wrapper for the Intrinio data service
-- [Quata][7] - API wrapper for the Quandl data service
+- [Fredric][5] - API wrapper for the FRED database ([go straight to API class][8])
+- [Intrinio][6] - API wrapper for the Intrinio data service ([go straight to API class][9])
+- [Quata][7] - API wrapper for the Quandl data service ([go straight to API class][10])
 
 
 ---
@@ -131,3 +131,6 @@ These gems use APICake:
 [5]: https://github.com/DannyBen/fredric
 [6]: https://github.com/DannyBen/intrinio
 [7]: https://github.com/DannyBen/quata
+[8]: https://github.com/DannyBen/fredric/blob/master/lib/fredric/api.rb
+[9]: https://github.com/DannyBen/intrinio/blob/master/lib/intrinio/api.rb
+[10]: https://github.com/DannyBen/quata/blob/master/lib/quata/api.rb
