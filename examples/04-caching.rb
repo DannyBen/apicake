@@ -4,10 +4,9 @@ class Client < APICake::Base
   base_uri 'jsonplaceholder.typicode.com'
 
   def initialize
-    # You can configure cachine behavior for the entire class by accessing
+    # You can configure caching behavior for the entire class by accessing
     # the Lightly cache object.
     # See: https://github.com/DannyBen/lightly
-    cache.disable
     cache.enable
     cache.dir = './tmp'
     cache.life = 60 # seconds
