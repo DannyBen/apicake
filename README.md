@@ -35,20 +35,21 @@ TL;DR
 Turn this hypothetical API URL:
 
 ```
-http://api.recipies.com/cakes?layers=3 
+http://api.recipes.com/cakes?layers=3 
 ```
 
 To this:
 
 ```ruby
-Recipies.cakes layers:3
+recipes = Recipes.new
+recipes.cakes layers:3
 ```
 
 Using this code only:
 
 ```ruby
-class Recipies < APICake::Base
-  base_url 'api.recipies.com'
+class Recipes < APICake::Base
+  base_uri 'api.recipes.com'
 end
 ```
 
@@ -77,20 +78,20 @@ URL.
 For example:
 
 ```ruby
-class Recipies << APICake::Base
-  base_url 'api.recipies.com/v1'
+class Recipes << APICake::Base
+  base_uri 'api.recipes.com/v1'
 end
 
-recipies = Rcipies.new
+recipes = Recipes.new
 
-# This will access http://api.recipies.com/v1/cakes
-recipies.cakes
+# This will access http://api.recipes.com/v1/cakes
+recipes.cakes
 
-# This will access http://api.recipies.com/v1/cakes/chocolate
-recipies.cakes 'chocolate'
+# This will access http://api.recipes.com/v1/cakes/chocolate
+recipes.cakes 'chocolate'
 
-# This will access http://api.recipies.com/v1/cakes/chocolate?layers=3
-recipies.cakes 'chocolate', layers: 3
+# This will access http://api.recipes.com/v1/cakes/chocolate?layers=3
+recipes.cakes 'chocolate', layers: 3
 ```
 
 See the [Examples folder][1] for more examples.
