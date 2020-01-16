@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Base do
   let(:mocky) { Mocks::Mocky.new }
@@ -11,8 +11,8 @@ describe Base do
     end
 
     it "forwards its params to #get" do
-      expect(subject).to receive(:get).with('/something', 'subpath', arg: :value)
-      subject.something 'subpath', arg: :value
+      expect(subject).to receive(:get).with("/something", "subpath", arg: :value)
+      subject.something "subpath", arg: :value
     end
   end
 
@@ -22,9 +22,9 @@ describe Base do
     it "allows getting cache life" do
       expect(subject.life).to eq 3600
     end
-    
+
     it "allows getting cache dir" do
-      expect(subject.dir).to eq 'cache'
+      expect(subject.dir).to eq "cache"
     end
 
     it "allows setting cache life" do
@@ -33,8 +33,8 @@ describe Base do
     end
 
     it "allows setting cache dir" do
-      subject.dir = 'storage'
-      expect(subject.dir).to eq 'storage'
+      subject.dir = "storage"
+      expect(subject.dir).to eq "storage"
     end
   end
 
@@ -44,34 +44,34 @@ describe Base do
 
       it "returns the html string" do
         expect(result).to be_a String
-        expect(result).to eq '<html>Working</html>'
+        expect(result).to eq "<html>Working</html>"
       end
     end
 
     context "with a json response" do
       let(:result) { subject.get mocky[:json] }
-      
+
       it "returns a hash" do
         expect(result).to be_a Hash
-        expect(result['address']).to eq '22 Acacia Avenue'
+        expect(result["address"]).to eq "22 Acacia Avenue"
       end
     end
 
     context "with a csv response" do
       let(:result) { subject.get mocky[:csv] }
-      
+
       it "returns a parsed csv array" do
         expect(result).to be_an Array
-        expect(result.first).to eq ['album', 'year']
+        expect(result.first).to eq ["album", "year"]
       end
     end
 
     context "with a 404 response" do
       let(:result) { subject.get mocky[:not_found] }
-      
+
       it "returns a parsed csv array" do
         expect(result).to be_an Hash
-        expect(result['still']).to eq 'parsed'
+        expect(result["still"]).to eq "parsed"
       end
     end
   end
@@ -85,20 +85,20 @@ describe Base do
 
   describe "#url" do
     it "returns the full url of the request" do
-      url = subject.url 'hello/world', param: 'value'
+      url = subject.url "hello/world", param: "value"
       expect(url).to eq "http://www.mocky.io/v2/hello/world?param=value"
     end
   end
 
   describe "#save" do
-    let(:filename) { 'spec/tmp/out.json' }
+    let(:filename) { "spec/tmp/out.json" }
     let(:path) { mocky[:json] }
 
     before do
       File.delete filename if File.exist? filename
       expect(File).not_to exist filename
     end
-    
+
     it "saves to a file" do
       subject.save filename, path
       expect(File).to exist filename
@@ -129,32 +129,32 @@ describe Base do
     context "with a response that contains at least one array" do
       it "returns a csv string" do
         result = subject.get_csv mocky[:array]
-        expect(result).to eq fixture('array.csv')
+        expect(result).to eq fixture("array.csv")
       end
     end
 
     context "with a response that does not contain any array" do
       it "returns a csv string" do
         result = subject.get_csv mocky[:non_array]
-        expect(result).to eq fixture('non_array.csv')
+        expect(result).to eq fixture("non_array.csv")
       end
     end
 
     context "with a non 200 response" do
       it "raises an error" do
-        expect{subject.get_csv mocky[:not_found]}.to raise_error(BadResponse)
+        expect { subject.get_csv mocky[:not_found] }.to raise_error(BadResponse)
       end
     end
 
     context "with a non hash response" do
       it "raises an error" do
-        expect{subject.get_csv mocky[:html]}.to raise_error(BadResponse)
+        expect { subject.get_csv mocky[:html] }.to raise_error(BadResponse)
       end
     end
   end
 
   describe "#save_csv" do
-    let(:filename) { 'spec/tmp/out.csv' }
+    let(:filename) { "spec/tmp/out.csv" }
 
     before do
       File.delete filename if File.exist? filename
@@ -163,9 +163,9 @@ describe Base do
 
     it "saves output to a file" do
       subject.save_csv filename, mocky[:array]
-      
+
       expect(File).to exist(filename)
-      expect(File.read filename).to eq fixture('array.csv')
+      expect(File.read filename).to eq fixture("array.csv")
     end
   end
 end
