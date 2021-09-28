@@ -132,7 +132,7 @@ module APICake
     #   client.get 'path/to/resource', param: value, param: value
     #
     def get(path, extra = nil, params = {})
-      get!(path, extra, params).parsed_response
+      get!(path.clone, extra.clone, params.clone).parsed_response
     end
 
     # Make a request or get it from cache, and return the entire {Payload}

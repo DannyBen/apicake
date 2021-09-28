@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe Base do
+  subject { Mocks::Client.new }
   let(:mocky) { Mocks::Mocky.new }
-  let(:subject) { Mocks::Client.new }
 
   describe "#method_missing" do
     it "delegates calls to #get" do
@@ -17,7 +17,7 @@ describe Base do
   end
 
   describe "#cache" do
-    let(:subject) { described_class.new.cache }
+    subject { described_class.new.cache }
 
     it "allows getting cache life" do
       expect(subject.life).to eq 3600
@@ -39,6 +39,18 @@ describe Base do
   end
 
   describe "#get" do
+    context "when the client has default_query" do
+      subject { Mocks::ClientWithQuery.new }
+
+      it "does not alter input argument" do
+        params = { a: 1 }
+        original_params = params.clone
+        result = subject.get mocky[:json], params
+        expect(result['address']).to eq "22 Acacia Avenue"
+        expect(params).to eq original_params
+      end
+    end
+
     context "with an html response" do
       let(:result) { subject.get mocky[:html] }
 
