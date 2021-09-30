@@ -145,7 +145,7 @@ module APICake
         http_get(path, extra, params)
       end
 
-      @last_url = @last_payload.request.last_uri.to_s
+      @last_url = @last_payload.request.uri.to_s
       @last_payload
     end
 
