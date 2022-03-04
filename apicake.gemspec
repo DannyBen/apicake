@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.files       = Dir['README.md', 'lib/**/*.*']
   s.homepage    = 'https://github.com/DannyBen/apicake'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.4"
+  s.required_ruby_version = ">= 2.6"
 
-  s.add_runtime_dependency 'lightly', '~> 0.1'
-  s.add_runtime_dependency 'httparty', '~> 0.14'
+  s.add_runtime_dependency 'lightly', '~> 0.3'
+  s.add_runtime_dependency 'httparty', '~> 0.20'
 
   s.metadata = {
     "bug_tracker_uri"   => "https://github.com/DannyBen/apicake/issues",
