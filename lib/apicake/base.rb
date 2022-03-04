@@ -53,8 +53,8 @@ module APICake
     #
     #   client.get 'path/optional_sub_path', optional_param: value, optional_param: value
     #
-    def method_missing(method_sym, *arguments, &_block)
-      get "/#{method_sym}", *arguments
+    def method_missing(method_sym, *args, **kwargs)
+      get "/#{method_sym}", *args, **kwargs
     end
 
     # This is the {https://github.com/DannyBen/lightly Lightly} cache object.
