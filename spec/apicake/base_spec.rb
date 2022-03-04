@@ -11,7 +11,7 @@ describe Base do
     end
 
     it "forwards its params to #get" do
-      expect(subject).to receive(:get).with("/something", "subpath", arg: :value)
+      expect(subject).to receive(:get).with("/something", "subpath", { arg: :value })
       subject.something "subpath", arg: :value
     end
   end
