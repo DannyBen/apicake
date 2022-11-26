@@ -57,7 +57,7 @@ module APICake
       get "/#{method_sym}", *args
     end
 
-    # Any undefined method call will can be handled by this class.
+    # Any undefined method call can be handled by this class.
     def respond_to_missing?(*)
       true
     end
