@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require "irb"
-require "irb/completion" # easy tab completion
-require "apicake"
+require 'irb'
+require 'irb/completion' # easy tab completion
+require 'apicake'
 
 include APICake
 

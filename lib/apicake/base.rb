@@ -1,5 +1,5 @@
-require "httparty"
-require "lightly"
+require 'httparty'
+require 'lightly'
 
 module APICake
   # To create your API wrapper, make a class that inherit from this class.
@@ -57,6 +57,11 @@ module APICake
       get "/#{method_sym}", *args
     end
 
+    # Any undefined method call will can be handled by this class.
+    def respond_to_missing?(*)
+      true
+    end
+
     # This is the {https://github.com/DannyBen/lightly Lightly} cache object.
     # You can access or modify cache settings with this object.
     #
@@ -94,7 +99,9 @@ module APICake
     #   p client.last_url
     #   # => "http://some.api.com/v3/some_path?api_key=secret&param=value"
     #
-    def default_query; {}; end
+    def default_query
+      {}
+    end
 
     # Override this method in order to merge parameters into the HTTParty
     # get request.
@@ -115,7 +122,9 @@ module APICake
     #
     # @see http://www.rubydoc.info/github/jnunemaker/httparty/HTTParty/ClassMethods HTTParty Class Methods documentation
     #
-    def default_params; {}; end
+    def default_params
+      {}
+    end
 
     # Make a request or get it from cache, and return the parsed response.
     #
@@ -142,7 +151,7 @@ module APICake
       key = cache_key path, extra, params
 
       @last_payload = cache.get key do
-        http_get(path, extra, params)
+        http_get path, params
       end
 
       @last_url = @last_payload.request.uri.to_s
@@ -180,26 +189,18 @@ module APICake
     #
     def get_csv(*args)
       payload = get!(*args)
-
-      if payload.response.code != "200"
-        raise BadResponse, "#{payload.response.code} #{payload.response.msg}"
-      end
+      raise BadResponse, "#{payload.response.code} #{payload.response.msg}" if payload.response.code != '200'
 
       response = payload.parsed_response
-
-      unless response.is_a? Hash
-        raise BadResponse, "Cannot parse response"
-      end
+      raise BadResponse, 'Cannot parse response' unless response.is_a? Hash
 
       data = csv_node response
-
       header = data.first.keys
-      result = CSV.generate do |csv|
+
+      CSV.generate do |csv|
         csv << header
         data.each { |row| csv << row.values }
       end
-
-      result
     end
 
     # Same as {#save}, only use the output of {#get_csv} instead of the
@@ -223,23 +224,23 @@ module APICake
       arrays.empty? ? [data] : data[arrays.first]
     end
 
-    private
+  private
 
     # Make a call with HTTParty and return a payload object.
-    def http_get(path, extra = nil, params = {})
+    def http_get(path, params = {})
       payload = self.class.get path, params
       APICake::Payload.new payload
     end
 
     # Normalize the three input parameters
     def normalize(path, extra = nil, params = {})
-      if extra.is_a?(Hash) and params.empty?
+      if extra.is_a?(Hash) && params.empty?
         params = extra
         extra = nil
       end
 
       path = "#{path}/#{extra}" if extra
-      path = "/#{path}" unless path[0] == "/"
+      path = "/#{path}" unless path[0] == '/'
 
       query = default_query.merge params
 

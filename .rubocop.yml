@@ -1,0 +1,24 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+inherit_gem:
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'dev/**/*'
+
+# Allow irregular filenames in some cases
+Naming/FileName:
+  Exclude:
+    - 'examples/**/*'
+    - 'spec/mocks/**/*'
+
+# Allow useless assignments in examples
+Lint/UselessAssignment:
+  Exclude:
+    - 'examples/**/*'

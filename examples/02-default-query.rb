@@ -13,7 +13,7 @@ class Client < APICake::Base
   # parameters into each request. This is suitable for providing an API key
   # or any other "sticky" parameter, like requested format.
   def default_query
-    { api_key: api_key, format: :json } 
+    { api_key: api_key, format: :json }
   end
 end
 
@@ -22,4 +22,3 @@ client = Client.new 'mykey'
 client.users
 p client.last_url
 # => http://jsonplaceholder.typicode.com/users?api_key=mykey&format=json
-

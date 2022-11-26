@@ -11,7 +11,6 @@ class Client < APICake::Base
     cache.dir = './tmp'
     cache.life = 60 # seconds
   end
-
 end
 
 client = Client.new
@@ -27,5 +26,3 @@ client.cache.life = 30
 client.cache.disable
 p client.cache.enabled?
 # => false
-
-
