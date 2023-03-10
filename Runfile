@@ -1,20 +1,13 @@
-require "runfile-tasks"
-require_relative 'lib/apicake'
+require 'apicake/version'
 
 title   "API Cake Developer Toolbelt"
 summary "Runfile tasks for building the API Cake gem"
 version APICake::VERSION
 
-RunfileTasks::RubyGems.all 'apicake'
-RunfileTasks::Testing.rspec
-RunfileTasks::Docs.rdoc
+import_gem 'runfile-tasks/gem'
+import 'debug'
 
 help   "Run YARD server"
 action :yard do
   system "yard server -p3000 -B0.0.0.0 -r"
-end
-
-help   "Run interactive console"
-action :console, :c do
-  system "bundle exec bin/console"
 end
