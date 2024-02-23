@@ -82,15 +82,6 @@ describe Base do
         expect(result.first).to eq %w[album year]
       end
     end
-
-    # context 'with a 404 response' do
-    #   let(:result) { subject.get 'not_found' }
-
-    #   it 'returns a parsed csv array' do
-    #     expect(result).to be_an Hash
-    #     expect(result['still']).to eq 'parsed'
-    #   end
-    # end
   end
 
   describe '#get!' do
