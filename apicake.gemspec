@@ -12,10 +12,17 @@ Gem::Specification.new do |s|
   s.files       = Dir['README.md', 'lib/**/*.*']
   s.homepage    = 'https://github.com/DannyBen/apicake'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.0'
+  s.required_ruby_version = '>= 3.1'
 
-  s.add_runtime_dependency 'httparty', '~> 0.20'
-  s.add_runtime_dependency 'lightly', '~> 0.3'
+  s.add_dependency 'httparty', '~> 0.20'
+  s.add_dependency 'lightly', '~> 0.3'
+
+  # FIXME: These are needed since Ruby 3.4 will no longer bundle these, and the
+  #        dependencies have not yet reflected this change, namely `httparty`
+  #        and `multi_xml`. Remove when appropriate.
+  s.add_dependency 'base64', '>= 0'
+  s.add_dependency 'bigdecimal', '>= 0'
+  s.add_dependency 'csv', '>= 0'
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/DannyBen/apicake/issues',

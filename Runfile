@@ -11,3 +11,10 @@ help   "Run YARD server"
 action :yard do
   system "yard server -p3000 -B0.0.0.0 -r"
 end
+
+help   "Run test mock server"
+usage  "mockserver"
+action :mockserver do |args|
+  exec "ruby spec/mock_api/server.rb"
+end
+

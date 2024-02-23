@@ -1,5 +1,4 @@
-API Cake - Build Dynamic API Wrappers
-==================================================
+# API Cake - Build Dynamic API Wrappers
 
 [![Gem Version](https://badge.fury.io/rb/apicake.svg)](https://badge.fury.io/rb/apicake)
 [![Build Status](https://github.com/DannyBen/apicake/workflows/Test/badge.svg)](https://github.com/DannyBen/apicake/actions?query=workflow%3ATest)
@@ -14,8 +13,7 @@ It is HTTParty with a Cake.
 ---
 
 
-Install
---------------------------------------------------
+## Install
 
 ```
 $ gem install apicake
@@ -28,8 +26,7 @@ gem 'apicake'
 ```
 
 
-TL;DR
---------------------------------------------------
+## TL;DR
 
 Turn this hypothetical API URL:
 
@@ -53,8 +50,7 @@ end
 ```
 
 
-Features
---------------------------------------------------
+## Features
 
 - Uses HTTParty
 - Built in caching
@@ -64,8 +60,7 @@ Features
 - Designed for GET-only APIs (e.g., data services)
 
 
-Usage
---------------------------------------------------
+## Usage
 
 Create a class and inherit from `APICake::Base`.
 
@@ -96,8 +91,7 @@ recipes.cakes 'chocolate', layers: 3
 See the [Examples folder][1] for more examples.
 
 
-Caching
---------------------------------------------------
+## Caching
 
 APICake uses [Lightly][2] for caching. By default, cached objects are stored
 in the `./cache` directory for 3600 seconds.
@@ -105,15 +99,13 @@ in the `./cache` directory for 3600 seconds.
 See the [caching example][3].
 
 
-Method Reference
---------------------------------------------------
+## Method Reference
 
 For a detailed explanation of the services and methods you get when inheriting
 from `APICake::Base`, see the [class documentation][4].
 
 
-Real World Examples
---------------------------------------------------
+## Real World Examples
 
 These gems use APICake:
 
@@ -121,6 +113,7 @@ These gems use APICake:
 - [Intrinio][6] - API wrapper for the Intrinio data service ([go straight to API class][9])
 - [Quata][7] - API wrapper for the Quandl data service ([go straight to API class][10])
 - [EOD Historical Data][11] - API wrapper for the EOD Historical Data service ([go straight to API class][12])
+- [Nasdaq][13] - API wrapper for the Nasdaq Data Link API ([go straight to API class][14])
 
 
 ---
@@ -137,3 +130,5 @@ These gems use APICake:
 [10]: https://github.com/DannyBen/quata/blob/master/lib/quata/api.rb
 [11]: https://github.com/DannyBen/eod
 [12]: https://github.com/DannyBen/eod/blob/master/lib/eod/api.rb
+[13]: https://github.com/dannyben/nasdaq
+[14]: https://github.com/dannyben/nasdaqblob/master/lib/nasdaq/api.rb
