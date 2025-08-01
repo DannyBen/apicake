@@ -1,11 +1,5 @@
 # API Cake - Build Dynamic API Wrappers
 
-[![Gem Version](https://badge.fury.io/rb/apicake.svg)](https://badge.fury.io/rb/apicake)
-[![Build Status](https://github.com/DannyBen/apicake/workflows/Test/badge.svg)](https://github.com/DannyBen/apicake/actions?query=workflow%3ATest)
-[![Maintainability](https://api.codeclimate.com/v1/badges/07bd0f8653914ce703a6/maintainability)](https://codeclimate.com/github/DannyBen/apicake/maintainability)
-
----
-
 This gem allows you to easily build rich API wrappers with minimal code.
 
 It is HTTParty with a Cake.
