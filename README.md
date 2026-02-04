@@ -1,11 +1,10 @@
 # API Cake - Build Dynamic API Wrappers
 
+![repocard](repocard.svg)
+
 This gem allows you to easily build rich API wrappers with minimal code.
 
 It is HTTParty with a Cake.
-
----
-
 
 ## Install
 
