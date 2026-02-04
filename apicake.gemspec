@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'httparty', '~> 0.20'
   s.add_dependency 'lightly', '~> 0.3'
+  s.add_dependency 'csv', '~> 3.3'
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/DannyBen/apicake/issues',
