@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'debug'
+gem 'ostruct'
 gem 'puma'
 gem 'rackup'
 gem 'rdoc'

@@ -53,8 +53,8 @@ module APICake
     #
     #   client.get 'path/optional_sub_path', optional_param: value, optional_param: value
     #
-    def method_missing(method_sym, *args)
-      get "/#{method_sym}", *args
+    def method_missing(method_sym, *)
+      get("/#{method_sym}", *)
     end
 
     # Any undefined method call can be handled by this class.
@@ -187,8 +187,8 @@ module APICake
     # You can override this method if you wish to provide a different
     # behavior.
     #
-    def get_csv(*args)
-      payload = get!(*args)
+    def get_csv(*)
+      payload = get!(*)
       raise BadResponse, "#{payload.response.code} #{payload.response.msg}" if payload.response.code != '200'
 
       response = payload.parsed_response
@@ -205,8 +205,8 @@ module APICake
 
     # Same as {#save}, only use the output of {#get_csv} instead of the
     # response body.
-    def save_csv(file, *args)
-      File.write file, get_csv(*args)
+    def save_csv(file, *)
+      File.write file, get_csv(*)
     end
 
     # Determins which part of the data is best suited to be displayed
