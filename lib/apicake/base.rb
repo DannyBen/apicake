@@ -1,5 +1,6 @@
 require 'httparty'
 require 'lightly'
+require 'csv'
 
 module APICake
   # To create your API wrapper, make a class that inherit from this class.
