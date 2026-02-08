@@ -1,6 +1,6 @@
 # API Cake - Build Dynamic API Wrappers
 
-![repocard](repocard.svg)
+![repocard](https://repocard.dannyben.com/svg/apicake.svg)
 
 This gem allows you to easily build rich API wrappers with minimal code.
 
